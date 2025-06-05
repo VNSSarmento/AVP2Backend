@@ -1,5 +1,4 @@
 <?php
-// index.php - Arquivo principal da API
 
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/config/database.php';
@@ -14,26 +13,21 @@ use Slim\Factory\AppFactory;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-// Criar a aplicação Slim
 $app = AppFactory::create();
 
-// Middleware para parsing JSON
 $app->addBodyParsingMiddleware();
 
-// Middleware para tratamento de erros
 $app->addErrorMiddleware(true, true, true);
 
-// Middleware para definir content-type como JSON
 $app->add(function (Request $request, $handler) {
     $response = $handler->handle($request);
     return $response->withHeader('Content-Type', 'application/json');
 });
 
-// Instanciar controllers
 $transacaoController = new TransacaoController();
 $estatisticaController = new EstatisticaController();
 
-// Rotas da API
+// Rotas
 
 // POST /transacao - Criar transação
 $app->post('/transacao', [$transacaoController, 'criar']);

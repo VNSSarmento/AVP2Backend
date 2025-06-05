@@ -1,5 +1,4 @@
 <?php
-// config/database.php - Configuração do banco de dados
 
 class Database {
     private static $instance = null;
@@ -38,7 +37,6 @@ class Database {
         return $this->connection;
     }
     
-    // Método para criar as tabelas necessárias
     public function criarTabelas() {
         $sql = "
             CREATE TABLE IF NOT EXISTS transacoes (
@@ -54,7 +52,6 @@ class Database {
     }
 }
 
-// Inicializar o banco de dados
 try {
     $database = Database::getInstance();
     $database->criarTabelas();

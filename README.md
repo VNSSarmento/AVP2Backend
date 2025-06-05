@@ -11,7 +11,7 @@ API REST desenvolvida em PHP com Slim Framework para gerenciamento de transaçõ
 
 ## Instalação
 
-1. Clone o repositório:
+1. Clone o repositório: 
 ```bash
 git clone <seu-repositorio>
 cd transacoes-api
